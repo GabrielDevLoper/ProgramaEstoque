@@ -23,12 +23,10 @@ public class CadastroProduto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtDesc = new javax.swing.JTextField();
         txtUnd = new javax.swing.JTextField();
         txtQuantidade = new javax.swing.JTextField();
         txtValorUnd = new javax.swing.JTextField();
-        txtValorTotal = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -56,11 +54,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         jLabel4.setText("Valor UND");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(10, 119, 62, 17);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Valor Total");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 150, 64, 17);
         getContentPane().add(txtDesc);
         txtDesc.setBounds(104, 16, 237, 30);
         getContentPane().add(txtUnd);
@@ -69,10 +62,6 @@ public class CadastroProduto extends javax.swing.JFrame {
         txtQuantidade.setBounds(104, 78, 59, 30);
         getContentPane().add(txtValorUnd);
         txtValorUnd.setBounds(104, 109, 59, 30);
-
-        txtValorTotal.setEnabled(false);
-        getContentPane().add(txtValorTotal);
-        txtValorTotal.setBounds(104, 140, 59, 30);
 
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,14 +89,12 @@ public class CadastroProduto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void CalculandoValorTotal(){
-        int quantidade = Integer.parseInt(txtQuantidade.getText());
-        double valorUnd = Double.parseDouble(txtValorUnd.getText());
-        double resultado = quantidade * valorUnd;
-        txtValorTotal.setText(Double.toString(resultado));//Convertendo valor de double para String.
-        p.ValorTotal(quantidade, valorUnd);
+    public void LimparCampoDeTextos(){
+        txtDesc.setText("");
+        txtUnd.setText("");
+        txtQuantidade.setText("");
+        txtValorUnd.setText("");
     }
-    
     
     
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -117,12 +104,14 @@ public class CadastroProduto extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         
-        p.setDescricao(txtDesc.getText());
-        p.setUnidade(txtUnd.getText());
+        p.setDescricao(txtDesc.getText().toUpperCase());
+        p.setUnidade(txtUnd.getText().toUpperCase());
         p.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
         p.setPrecoPorUnd(Double.parseDouble(txtValorUnd.getText()));
         p.setPrecoTotal(p.getQuantidade()* p.getPrecoPorUnd());
         pdao.Salvar(p);
+        
+        LimparCampoDeTextos();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     
@@ -165,12 +154,10 @@ public class CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtQuantidade;
     private javax.swing.JTextField txtUnd;
-    private javax.swing.JTextField txtValorTotal;
     private javax.swing.JTextField txtValorUnd;
     // End of variables declaration//GEN-END:variables
 }

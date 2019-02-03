@@ -12,6 +12,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnCadastrarProduto = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -31,6 +32,10 @@ public class MenuInicial extends javax.swing.JFrame {
         });
         jPanel1.add(btnCadastrarProduto);
         btnCadastrarProduto.setBounds(20, 10, 190, 50);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-desligar-96.png"))); // NOI18N
+        jPanel1.add(jButton1);
+        jButton1.setBounds(1050, 3, 100, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/darkblurbg.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -87,6 +92,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarProduto;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
